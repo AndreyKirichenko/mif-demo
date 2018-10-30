@@ -1,0 +1,48 @@
+{
+  "name": "TheWaay",
+  "version": "1.0.0",
+  "description": "TheWaay land markup",
+  "main": "src/js/app.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyKirichenko/mif-demo.git"
+  },
+  "author": "Kirichenko Andrey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndreyKirichenko/mif-demo/issues"
+  },
+  "homepage": "https://github.com/AndreyKirichenko/mif-demo/#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^4.0.0-alpha",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.3",
+    "path": "^0.12.7",
+    "postcss-clean": "^1.1.0",
+    "postcss-load-config": "^2.0.0",
+    "postcss-loader": "^3.0.0",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "angular": "^1.7.5"
+  }
+}

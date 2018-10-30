@@ -1,0 +1,22 @@
+.page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.page__section {
+  display: flex;
+  justify-content: center;
+}
+
+.page__content {
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1366px;
+  }
+}

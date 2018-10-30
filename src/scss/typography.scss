@@ -1,0 +1,53 @@
+.title {
+  font-size: 38px;
+  font-size: calc(100vw * 0.12);
+
+  font-weight: 600;
+  line-height: 1.21em;;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 48px;
+    margin: 0 42px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 64px;
+  }
+
+  @media screen and (min-width: $wideDesktop) {
+    font-size: 72px;
+    letter-spacing: -1px;
+    line-height: 84px;
+    max-width: 1200px;
+    margin: 0 auto  ;
+  }
+}
+
+.break {
+  display: none;
+}
+
+.break--mobile {
+  @media screen and (max-width: $tablet - 1) {
+    display: block;
+  }
+}
+
+.break--tablet {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    display: block;
+  }
+}
+
+.break--desktop {
+  @media screen and (min-width: $desktop) and (max-width: $wideDesktop - 1) {
+    display: block;
+  }
+}
+
+.break--wideDesktop {
+  @media screen and (min-width: $wideDesktop) {
+    display: block;
+  }
+}

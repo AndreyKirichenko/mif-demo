@@ -1,0 +1,26 @@
+.liveBookShowcase {
+  display: grid;
+  align-items: stretch;
+
+  //grid-template-rows: ;
+  //grid-template-columns: ;
+
+  grid-template-areas:
+      "title title title"
+      "start book end";
+}
+
+.liveBookShowcase__title {
+  grid-area: title;
+  margin-bottom: 30px;
+}
+
+.liveBookShowcase__teaser {
+
+}
+
+.liveBookShowcase__book {
+  display: flex;
+  grid-area: book;
+  justify-content: center;
+}

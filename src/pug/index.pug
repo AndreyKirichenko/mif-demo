@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    include _head
+
+  body
+    include _svg
+
+    .page
+      section.page__section
+        .page__content
+          header.header
+            .header__logo
+              include _logo
+
+            .header__search
+              include _search
+
+      section.page__section
+        .page__content
+          include _live_book_showcase
+
+      section.page__section.page__footer
+        .page__content
+          footer.footer
+            .footer__group
+              img.footer__bender(src='/img/footer/footer.png', alt='Бендер')
+              .footer__logo
+                include _logo

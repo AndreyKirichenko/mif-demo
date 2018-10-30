@@ -1,0 +1,26 @@
+svg(style='position: absolute; width: 0; height: 0; overflow: hidden;', version='1.1', xmlns='http://www.w3.org/2000/svg')
+  defs
+    symbol#svgEnter(viewbox='0 0 12 23')
+      path(d='M12.01 16.664v.026a3.318 3.318 0 0 1-3.21 3.288h-.1v-.939a2.367 2.367 0 0 0 2.36-2.371v-.004h.95zM1.03 19.031h7.66v.937H1.03v-.937zM0 19.863l.48-.82 4.47 3.019-.47.82zm.24-.825l.45.774 4.28-2.911-.45-.775zM11.06 0H12v16.656h-.94V0z', fill='#979799', fill-rule='evenodd', stroke-width='0')
+
+    symbol#svgMagnifier(viewbox='0 0 18 18')
+      path(d='M7 2a5 5 0 1 1-5 5 5 5 0 0 1 5-5zm0-2a7 7 0 1 1-7 7 7 7 0 0 1 7-7zm3.293 11.707l1.414-1.414 6 6-1.414 1.414z', fill='#979799', fill-rule='evenodd', stroke-width='0')
+
+    symbol#svgEyelid(viewbox='0 0 132 132')
+      path(d='')
+        animate(
+        id='svgEyelidAnimate'
+        dur='0.2s',
+        attributeName='d'
+        values='' +
+        'M66 12c25.2 0 47.5 12 61.7 30.6C118.2 17.7 94.2 0 66 0 37.8 0 13.8 17.7 4.3 42.6 18.5 24 40.8 12 66 12z;'+
+        'M131.4 57.4C127.2 25 99.5 0 66 0S4.8 25 .6 57.4C17.8 41.6 40.8 32 66 32s48.2 9.6 65.4 25.4z;' +
+        'M131.7 59.4C128.4 26.1 100.2 0 66 0S3.6 26.1.3 59.4C21.4 54.6 43.4 52 66 52s44.6 2.6 65.7 7.4z;' +
+        'M131.9 63.5C130.6 28.2 101.6 0 66 0S1.4 28.2.1 63.5C21.9 62.5 43.9 62 66 62c22.1 0 44.1.5 65.9 1.5z;'+
+        'M131.7 59.4C128.4 26.1 100.2 0 66 0S3.6 26.1.3 59.4C21.4 54.6 43.4 52 66 52s44.6 2.6 65.7 7.4z;' +
+        'M66 12c25.2 0 47.5 12 61.7 30.6C118.2 17.7 94.2 0 66 0 37.8 0 13.8 17.7 4.3 42.6 18.5 24 40.8 12 66 12z;'
+        )
+
+    symbol#svgEyelids(viewbox='0 0 132 132')
+      use(xlink:href='#svgEyelid')
+      use(xlink:href='#svgEyelid', transform='rotate(180) translate(-132, -132)')
