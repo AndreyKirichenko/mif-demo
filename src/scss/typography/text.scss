@@ -120,11 +120,13 @@
 .text__blockquote {
   border-bottom: 1px solid #7d7d7d;
   border-top: 1px solid #7d7d7d;
+  box-sizing: border-box;
+  font-family: 'ALSFuchsia', 'Times New Roman', serif;
   font-size: 28px;
   line-height: 42px;
-  margin: 0 auto 30px;
+  margin: 0 auto 38px;
   max-width: 880px;
-  padding: 35px 40px;
+  padding: 32px 40px;
   text-align: center;
 
   @media screen and (min-width: $tablet) {
