@@ -1,0 +1,14 @@
+.ribbon {
+  height: 24px;
+  width: 13px;
+}
+
+.ribbon--big {
+  height: 31px;
+  width: 17px;
+
+  @media screen and (min-width: $tablet) {
+    height: 48px;
+    width: 26px;
+  }
+}

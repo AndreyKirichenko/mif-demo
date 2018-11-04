@@ -1,0 +1,27 @@
+.break {
+  display: none;
+}
+
+.break--mobile {
+  @media screen and (max-width: $tablet - 1) {
+    display: block;
+  }
+}
+
+.break--tablet {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    display: block;
+  }
+}
+
+.break--desktop {
+  @media screen and (min-width: $desktop) and (max-width: $wideDesktop - 1) {
+    display: block;
+  }
+}
+
+.break--wideDesktop {
+  @media screen and (min-width: $wideDesktop) {
+    display: block;
+  }
+}

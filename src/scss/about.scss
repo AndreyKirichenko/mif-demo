@@ -1,0 +1,11 @@
+.about {
+  margin-bottom: 50px;
+}
+
+.about__employees {
+  margin-bottom: -6px;
+
+  @media screen and (min-width: $wideDesktop) {
+    margin-bottom: -1px;
+  }
+}

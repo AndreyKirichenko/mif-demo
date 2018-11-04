@@ -1,13 +1,38 @@
 .liveBookShowcase {
-  display: grid;
   align-items: stretch;
-
-  //grid-template-rows: ;
-  //grid-template-columns: ;
+  display: grid;
+  margin-bottom: 80px;
 
   grid-template-areas:
-      "title title title"
-      "start book end";
+      "title"
+      "book"
+      "buyText"
+      "bender"
+      "zoidberg"
+      "code"
+      "magnet"
+      "footer";
+
+  @media screen and (min-width: $tablet) {
+    grid-template-areas:
+        "title title"
+        "book book"
+        "buyText buyText"
+        "footer footer"
+        "bender code"
+        "zoidberg magnet";
+
+    margin-bottom: 100px;
+  }
+
+  @media screen and (min-width: $desktop + 100) {
+    grid-template-areas:
+        "title title title"
+        "bender book code"
+        "zoidberg book magnet"
+        ". buyText ."
+        ". footer .";
+  }
 }
 
 .liveBookShowcase__title {
@@ -16,11 +41,134 @@
 }
 
 .liveBookShowcase__teaser {
+  margin-bottom: 51px;
 
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0;
+  }
+}
+
+.liveBookShowcase__teaser--bender {
+  grid-area: bender;
+}
+
+.liveBookShowcase__teaser--zoidberg {
+  grid-area: zoidberg;
+
+  @media screen and (min-width: $tablet) {
+    transform: translate(-10px, 53px);
+  }
+}
+
+.liveBookShowcase__teaser--code {
+  grid-area: code;
+}
+
+.liveBookShowcase__teaser--magnet {
+  grid-area: magnet;
+
+  @media screen and (min-width: $tablet) {
+    transform: translate(0, 54px);
+  }
 }
 
 .liveBookShowcase__book {
   display: flex;
   grid-area: book;
   justify-content: center;
+  margin: 0 10px 23px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 33px;
+  }
+}
+
+.liveBookShowcase__footer {
+  grid-area: footer;
+}
+
+.liveBookShowcase__submit {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  height: 116px;
+  font-size: 33px;
+  letter-spacing: 1px;
+  line-height: 38px;
+  margin: 0 auto 23px;
+  padding-bottom: 8px;
+  width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    height: 76px;
+    padding: 0 20px 5px;
+    width: 440px;
+  }
+}
+
+.liveBookShowcase__currency {
+  display: inline-block;
+  position: relative;
+
+  &:before {
+    background-color: #fff;
+    bottom: 0.4em;
+    content: '';
+    left: 0.02em;
+    right: 0.10em;
+    height: .08em;
+    position: absolute;
+  }
+}
+
+.liveBookShowcase__submit:hover {
+  background-image: linear-gradient(to bottom, #c28dc5, #4a284c);
+}
+
+.liveBookShowcase__submit,
+.liveBookShowcase__submit:active {
+  background-image: linear-gradient(to bottom, #865788, #633b64);
+}
+
+.liveBookShowcase__buyText {
+  grid-area: buyText;
+  color: #333;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: center;
+  margin-bottom: 52px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 22px;
+  }
+}
+
+.liveBookShowcase__link {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.liveBookShowcase__highlighted {
+  color: #fc5454;
+}
+
+.liveBookShowcase__aboutPrices {
+  color: #dcdcdc;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 19px;
+  margin-bottom: 7px;
+  text-align: center;
+}
+
+.liveBookShowcase__skraffi {
+  display: block;
+  height: 70px;
+  margin: 0 auto;
+  width: 70px;
 }

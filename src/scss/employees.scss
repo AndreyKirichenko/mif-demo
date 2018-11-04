@@ -1,0 +1,25 @@
+.employees {
+  align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-between;
+  max-width: 267px;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 450px;
+
+  }
+
+  @media screen and (min-width: $wideDesktop) {
+    max-width: 1072px;
+  }
+}
+
+.employees__item {
+  margin-bottom: 40px;
+}
+
+.employees__img--marked {
+  transform: translateY(5px);
+}

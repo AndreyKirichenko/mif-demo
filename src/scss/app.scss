@@ -6,8 +6,11 @@
 
 @import 'svg';
 
-@import 'typography';
 @import 'page';
+
+@import 'typography/title';
+@import 'typography/text';
+@import 'typography/break';
 
 @import 'logo';
 @import 'header';
@@ -15,6 +18,11 @@
 
 @import 'live_book_showcase';
 @import 'live_book';
+@import 'ribbon';
 @import 'eye';
+@import 'fact_teaser';
+@import 'about';
+
+@import 'employees';
 
 @import 'footer';

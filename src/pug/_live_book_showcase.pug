@@ -1,5 +1,5 @@
 .liveBookShowcase
-  .title.liveBookShowcase__title
+  .title.title--1.liveBookShowcase__title
     | Мы&nbsp;издаем&nbsp;
     br.break.break--mobile.break.break--tablet
     | книги&nbsp;&mdash;&nbsp;вы&nbsp;
@@ -12,7 +12,9 @@
 
   .liveBookShowcase__book
     .liveBook
-      .liveBook__bookmark
+      .liveBook__ribbon
+        svg.svg.ribbon.ribbon--big
+          use(xlink:href='#svgRibbon')
 
       img.liveBook__cover(src='/img/live_book/live_book.jpg', alt='Живая книга (ее нужно кормить)')
 
@@ -23,8 +25,68 @@
           svg.svg.eye__eyelids
             use(xlink:href='#svgEyelids')
 
-  .liveBookShowcase__start
-    .liveBookShowcase__teaser
+  .liveBookShowcase__teaser.liveBookShowcase__teaser--bender
+    .factTeaser
+      img.factTeaser__img(src='/img/live_book/1.jpg', alt='')
 
+      blockquote.factTeaser__text.factTeaser__text--blockquote(title='')
+        | Эта книга доказывает ничтожность человеческой массы.
 
-  .liveBookShowcase__end
+  .liveBookShowcase__teaser.liveBookShowcase__teaser--zoidberg
+    .factTeaser
+      img.factTeaser__img.factTeaser__img--zoidberg(src='/img/live_book/2.jpg', alt='')
+
+      p.factTeaser__text
+        | В книге чувствуется безысходность и&nbsp;бесполезность
+
+  .liveBookShowcase__teaser.liveBookShowcase__teaser--code
+    .factTeaser
+      img.factTeaser__img(src='/img/live_book/3.jpg', alt='')
+
+      p.factTeaser__text
+        | Книга неправильно
+        br.break.break--mobile
+        | переведена
+        br.break.break--tablet.break--desktop.break--wideDesktop
+        | на&nbsp;двоичный&nbsp;код
+
+  .liveBookShowcase__teaser.liveBookShowcase__teaser--magnet
+    .factTeaser
+      img.factTeaser__img(src='/img/live_book/4.jpg', alt='')
+
+      p.factTeaser__text
+        | В каждой книге магнит, который вытягивает вашу мелочь
+
+  .liveBookShowcase__buyText
+    | В топ-100&nbsp;
+    br.break.break--mobile
+    a.liveBookShowcase__link(href='http://zoidbergzon.com')
+      span.liveBookShowcase__highlighted
+        | Zoidberg
+      | zon.com
+    | &nbsp;
+    br.break.break--mobile.break--tablet.break--desktop.break--wideDesktop
+    | &nbsp;в&nbsp;разделах «Это правда&nbsp;
+    br.break.break--mobile
+    |было так»&nbsp;
+    br.break.break--tablet.break--desktop.break--wideDesktop
+    | и «Когнитивный писсонанс»
+
+  .liveBookShowcase__footer
+    button.liveBookShowcase__submit
+      | Купить
+      br.break.break--mobile
+      | за жалкие 1999
+      span.liveBookShowcase__currency
+        | Z
+
+    .liveBookShowcase__aboutPrices
+      | Наши цены самые непредсказуемые&nbsp;
+      br.break.break--mobile
+      | и&nbsp;формируются
+      br.break.break--tablet.break--desktop.break--wideDesktop
+      | нашим уборщиком&nbsp;
+      br.break.break--mobile
+      | Скраффи
+
+    img.liveBookShowcase__skraffi(src='/img/live_book/skraffi.jpg', alt='Скраффи')

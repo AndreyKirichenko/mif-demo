@@ -5,7 +5,7 @@
 .liveBook__cover {
   box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.55);
   position: relative;
-  min-width:  300px;
+  min-width:  280px;
   width: 100%;
 
   @media screen and (min-width: $tablet) {
@@ -14,13 +14,21 @@
   }
 }
 
-.liveBook__bookmark {
-
-}
-
 .liveBook__eye {
   left: 50%;
   position: absolute;
   top: 385 / 600 * 100%;
   transform: translate(-50%, -50%);
+}
+
+.liveBook__ribbon {
+  bottom: -27px;
+  left: 26px;
+  position: absolute;
+  color: #ea5056;
+
+  @media screen and (min-width: $tablet) {
+    bottom: -33px;
+    left: 39px;
+  }
 }

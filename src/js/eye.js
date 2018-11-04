@@ -1,5 +1,8 @@
 import throttle from './throttle'
 
+const BLINK_TIMEOUT = 8000;
+const DEBOUNCE_TIMEOUT = 100;
+
 class Eye {
   constructor() {
     this.isCrazy = false;
@@ -19,7 +22,7 @@ class Eye {
 
   updateSizes() {
     this.pupilRelWin = this.pupil.getBoundingClientRect();
-    this.eyeSize = this.eye.offsetWidth - this.pupil.offsetWidth;
+    this.eyeSize = this.eye.offsetWidth;
   }
 
   initPupil() {
@@ -27,7 +30,7 @@ class Eye {
       this.updateSizes();
     });
 
-    let debouncedUpdate = throttle(() => this.pupilUpdate(), 100);
+    let debouncedUpdate = throttle(() => this.pupilUpdate(), DEBOUNCE_TIMEOUT);
 
     window.addEventListener('mousemove', (event) => {
       this.mouseX = event.clientX;
@@ -64,8 +67,8 @@ class Eye {
   }
 
   pupilMove(sin, cos, strength) {
-    let xOffset = sin * this.eyeSize / 2 * strength - this.pupil.offsetWidth * 0.5;
-    let yOffset = cos * this.eyeSize / 2 * strength - this.pupil.offsetHeight * 0.5;
+    let xOffset = sin * this.eyeSize / 2 * strength - this.pupil.offsetWidth / 2;
+    let yOffset = cos * this.eyeSize / 2 * strength - this.pupil.offsetHeight / 2;
 
     this.pupil.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
 
@@ -81,12 +84,12 @@ class Eye {
     setTimeout(() => {
       this.eyelidsAnimate.beginElement();
       this.initBlink();
-    }, Math.random() * 10000)
+    }, Math.random() * BLINK_TIMEOUT)
   }
 
   oh() {
     this.isCrazy = true;
-    this.eye.classList.add('eye--oh')
+    this.eye.classList.add('eye--oh');
   }
 }
 
