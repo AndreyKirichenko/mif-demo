@@ -1,0 +1,30 @@
+.book {
+  cursor: pointer;
+  height: 300px;
+  position: relative;
+  width: 210px;
+}
+
+.book__image {
+  bottom: 0;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.33);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.book__ribbon {
+  bottom: -19px;
+  left: 20px;
+  position: absolute;
+}
+
+.book--dragAndDrop {
+  cursor: move;
+  transform: scale(1.2, 1.2) translateY(-30px);
+}
+
+.book--dragAndDrop .book__image {
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.33);
+}

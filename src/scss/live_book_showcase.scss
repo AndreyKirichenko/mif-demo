@@ -1,7 +1,7 @@
 .liveBookShowcase {
   align-items: stretch;
   display: grid;
-  margin-bottom: 80px;
+  margin-bottom: 65px;
 
   grid-template-areas:
       "title"
@@ -22,7 +22,7 @@
         "bender code"
         "zoidberg magnet";
 
-    margin-bottom: 100px;
+    margin-bottom: 72px;
   }
 
   @media screen and (min-width: $desktop + 100) {

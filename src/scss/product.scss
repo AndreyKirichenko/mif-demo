@@ -1,0 +1,37 @@
+.product {
+  height: 400px;
+  width: 300px;
+
+  @media screen and (min-width: $tablet) {
+    width: 320px;
+  }
+}
+
+.product__book {
+  height: 300px;
+  margin: 0 auto 21px;
+  width: 210px;
+}
+
+.product__title {
+  box-sizing: border-box;
+  color: #333;
+  font-size: 19px;
+  line-height: 26px;
+  padding: 0 10px;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    height: 78px;
+    padding: 0 20px;
+  }
+}
+
+.product__title a {
+  color: #4283c0;
+  text-decoration: underline;
+}
+
+.productsShowcase__book {
+  cursor: pointer;
+}
