@@ -24,7 +24,7 @@ function productsShowcase() {
         // document.body.appendChild(crt);
         let dragged = event.currentTarget;
         // dragged.style = 'opacity: 0;';
-        event.dataTransfer.setDragImage(d ragged, 0, 0);
+        event.dataTransfer.setDragImage(dragged, 0, 0);
       };
 
       $scope.moreButtonClickHandler = () => {

@@ -7,28 +7,8 @@
     p.text__p.productsShowcase__description
       | Перетаскивайте книги ниже с&nbsp;места на&nbsp;место. Это&nbsp;то, чем мы&nbsp;любим больше всего заниматься. Попробуйте, вам понравится.
 
-  //ul.productsShowcase__list
-  //  li.productsShowcase__item(ng-repeat='book in books')
-  //    .product
-  //      .product__book.productsShowcase__book
-  //        .book
-  //          .book__ribbon(style='color: {{book.ribbonColor}}')
-  //            svg.svg.ribbon
-  //              use(xlink:href='#svgRibbon')
-  //
-  //          img.book__image.productsShowcase__cover(ng-src='{{book.url}}', alt='some text')
-  //
-  //      .product__title(ng-bind-html='book.description')
-  //
-  //  .productsShowcase__marker
-
-  ul.productsShowcase__list(dnd-list='models.books')
-    li.productsShowcase__item(
-        ng-repeat='book in models.books',
-        dnd-draggable='book',
-        dnd-moved='models.books.splice($index, 1)',
-        dnd-effect-allowed='move',
-        dnd-dragstart ='dragOverHandler(event)')
+  ul.productsShowcase__list
+    li.productsShowcase__item(ng-repeat='book in books')
       .product
         .product__book.productsShowcase__book
           .book
@@ -39,6 +19,8 @@
             img.book__image.productsShowcase__cover(ng-src='{{book.url}}', alt='some text')
 
         .product__title(ng-bind-html='book.description')
+
+    .productsShowcase__marker
 
 
   button.productsShowcase__more(ng-click='moreButtonClickHandler()')
