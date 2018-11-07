@@ -1,8 +1,16 @@
 import '../scss/app.scss';
 import '../pug/index.pug';
 
-import Eye from './eye';
+import LiveBookShowcase from './live_book_showcase';
+import ProductsShowcase from './products_showcase';
+
+ProductsShowcase();
 
 document.addEventListener('DOMContentLoaded', function() {
-  let eye = new Eye();
+  LiveBookShowcase();
 });
+
+function init() {
+
+  // ProductsShowcase();
+}

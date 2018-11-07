@@ -6,6 +6,7 @@
   overflow: hidden;
   position: relative;
   width: 88px;
+  will-change: transform;
 
   @media screen and (min-width: $tablet) {
     height: 132px;

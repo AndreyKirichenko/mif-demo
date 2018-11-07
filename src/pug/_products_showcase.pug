@@ -1,27 +1,45 @@
-.productsShowcase.text
+.productsShowcase.text(ng-app='showcase', ng-controller='showcaseListCtrl')
   .text__level.text__level--1
+
     h1.title.title--1.productsShowcase__title
       | Самое незаметное издательство
 
     p.text__p.productsShowcase__description
       | Перетаскивайте книги ниже с&nbsp;места на&nbsp;место. Это&nbsp;то, чем мы&nbsp;любим больше всего заниматься. Попробуйте, вам понравится.
 
-  ul.productsShowcase__list
-    include product
-    .productsShowcase__marker
-    include product
+  //ul.productsShowcase__list
+  //  li.productsShowcase__item(ng-repeat='book in books')
+  //    .product
+  //      .product__book.productsShowcase__book
+  //        .book
+  //          .book__ribbon(style='color: {{book.ribbonColor}}')
+  //            svg.svg.ribbon
+  //              use(xlink:href='#svgRibbon')
+  //
+  //          img.book__image.productsShowcase__cover(ng-src='{{book.url}}', alt='some text')
+  //
+  //      .product__title(ng-bind-html='book.description')
+  //
+  //  .productsShowcase__marker
 
-    include product
+  ul.productsShowcase__list(dnd-list='models.books')
+    li.productsShowcase__item(
+        ng-repeat='book in models.books',
+        dnd-draggable='book',
+        dnd-moved='models.books.splice($index, 1)',
+        dnd-effect-allowed='move',
+        dnd-dragstart ='dragOverHandler(event)')
+      .product
+        .product__book.productsShowcase__book
+          .book
+            .book__ribbon(style='color: {{book.ribbonColor}}')
+              svg.svg.ribbon
+                use(xlink:href='#svgRibbon')
 
-    include product
+            img.book__image.productsShowcase__cover(ng-src='{{book.url}}', alt='some text')
 
-    include product
+        .product__title(ng-bind-html='book.description')
 
-    include product
 
-    include product
-
-    include product
-
-  button.productsShowcase__more
+  button.productsShowcase__more(ng-click='moreButtonClickHandler()')
     | Еще несколько книг

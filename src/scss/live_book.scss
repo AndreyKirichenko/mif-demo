@@ -1,5 +1,30 @@
 .liveBook {
   position: relative;
+  will-change: transform;
+}
+
+.liveBook--bought {
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-name: bought;
+  animation-timing-function: ease;
+
+  transition: transform 0.5s ease;
+  transform: scale(1.1);
+}
+
+@keyframes bought {
+  0% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+
+  50% {
+    transform: scale(1.15) rotate(5deg);
+  }
+
+  100% {
+    transform: scale(1.1) rotate(-5deg);
+  }
 }
 
 .liveBook__cover {
@@ -19,6 +44,7 @@
   position: absolute;
   top: 385 / 600 * 100%;
   transform: translate(-50%, -50%);
+  will-change: transform;
 }
 
 .liveBook__ribbon {
