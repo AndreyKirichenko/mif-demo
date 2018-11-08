@@ -1,5 +1,3 @@
-import angular from 'angular';
-import ngSanitize from 'angular-sanitize';
 import randomColor from 'randomcolor';
 
 const BOOKS_URL = 'data/books.json';
@@ -8,30 +6,11 @@ const SHOW_ON_PAGE = 8;
 const CLICK_DELAY = 200;
 
 class ProductsShowcase {
-  constructor() {
-    this.module = angular.module('showcase', ['ngSanitize']);
-    this.controller = this.module.controller('showcaseListCtrl', ['$scope', '$http', ($scope, $http) => {
-      ProductsShowcase.loadData($http).then((loadedData) => {
-        this.initScope($scope);
-        this.onDataLoaded(loadedData);
-      });
-    }]);
-
-    this.module.directive('onFinishRender',['$timeout', '$parse', function ($timeout, $parse) {
-      return {
-        restrict: 'A',
-        link: function (scope, element, attr) {
-          if (scope.$last === true) {
-            $timeout(function () {
-              scope.$emit('ngRepeatFinished');
-              if(!!attr.onFinishRender) {
-                $parse(attr.onFinishRender)(scope);
-              }
-            });
-          }
-        }
-      }
-    }])
+  constructor($scope, $http) {
+    ProductsShowcase.loadData($http).then((loadedData) => {
+      this.initScope($scope);
+      this.onDataLoaded(loadedData);
+    });
   }
 
   onDataLoaded(loadedData) {

@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app='app')
   head
     include _head
     //script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-drag-and-drop-lists/1.4.0/angular-drag-and-drop-lists.min.js')
@@ -9,18 +9,18 @@ html
     include _svg
 
     .page
-      section.page__section
-        .page__content
-          header.header
-            .header__logo
-              include _logo
-
-            .header__search
-              include _search
-
-      section.page__section
-        .page__content
-          include _live_book_showcase
+      //section.page__section
+      //  .page__content
+      //    header.header
+      //      .header__logo
+      //        include _logo
+      //
+      //      .header__search
+      //        include _search
+      //
+      //section.page__section
+      //  .page__content
+      //    include _live_book_showcase
 
       section.page__section
         .page__content
