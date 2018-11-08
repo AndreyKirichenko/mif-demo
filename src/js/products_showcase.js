@@ -1,11 +1,11 @@
 import angular from 'angular';
 import ngSanitize from 'angular-sanitize';
 import randomColor from 'randomcolor';
-import throttle from './throttle'
 
 const BOOKS_URL = 'data/books.json';
 const DESKTOP_WIDTH = 1000;
 const SHOW_ON_PAGE = 8;
+const CLICK_DELAY = 200;
 
 class ProductsShowcase {
   constructor() {
@@ -24,7 +24,7 @@ class ProductsShowcase {
           if (scope.$last === true) {
             $timeout(function () {
               scope.$emit('ngRepeatFinished');
-              if(!!attr.onFinishRender){
+              if(!!attr.onFinishRender) {
                 $parse(attr.onFinishRender)(scope);
               }
             });
@@ -47,6 +47,8 @@ class ProductsShowcase {
     this.$scope.bookMouseDownHandler = this.drag.bind(this);
     this.$scope.bookMouseMoveHandler = this.move.bind(this);
     this.$scope.bookMouseUpnHandler = this.drop.bind(this);
+
+    this.$scope.coverClick = this.coverClick.bind(this);
   }
 
   initResizeListener() {
@@ -111,10 +113,10 @@ class ProductsShowcase {
     });
 
     if(current) {
-      current.marker = 0;
+      current.marker = -1;
 
       if(current.left + current.halfWidth < mousePageX) {
-        current.marker = 1;
+        current.marker = 0;
       }
     }
 
@@ -128,6 +130,7 @@ class ProductsShowcase {
     draggedItem.isDragged = true;
 
     this.dragAndDrop = {
+      dragStartTime: new Date(),
       draggedItem,
       draggedItemIndex: index,
       mouseOnDragStart: {
@@ -141,8 +144,6 @@ class ProductsShowcase {
     if(!this.dragAndDrop.disabled && !this.dragAndDrop.draggedItem) {
       return;
     }
-
-    event.preventDefault();
 
     this.processDrag(event, index);
   }
@@ -169,24 +170,36 @@ class ProductsShowcase {
 
     let itemPositionToDrop = this.getItemPositionToDrop(event.pageX, event.pageY);
 
-    if(itemPositionToDrop) {
-      this.dragAndDrop.draggedItemNewIndex = itemPositionToDrop.index;
-      if(this.dragAndDrop.draggedItemIndex !== this.dragAndDrop.draggedItemNewIndex) {
-        this.dragAndDrop.draggedItemNewIndex += itemPositionToDrop.marker - 1;
-      }
-      console.log('itemPositionToDrop.marker', itemPositionToDrop.marker);
-      this.moveBookInScope(this.dragAndDrop.draggedItemIndex, this.dragAndDrop.draggedItemNewIndex);
-    }
-    this.clearMarker();
-  }
-
-  moveBookInScope(oldIndex, newIndex) {
-    console.log(oldIndex, newIndex);
-    if(oldIndex === newIndex) {
+    if(!itemPositionToDrop) {
+      this.clearMarker();
       return;
     }
 
-    if(newIndex < 0) {
+    let oldIndex = this.dragAndDrop.draggedItemIndex;
+    let newIndex = itemPositionToDrop.index;
+
+    if(oldIndex > newIndex) {
+      newIndex += 1;
+    }
+
+
+    if(this.dragAndDrop.draggedItemIndex !== itemPositionToDrop.index) {
+      newIndex += itemPositionToDrop.marker;
+    }
+
+    this.moveBookInScope(oldIndex, newIndex);
+
+    this.clearMarker();
+  }
+
+  coverClick(event, index) {
+    if (new Date() - this.dragAndDrop.dragStartTime > CLICK_DELAY) {
+      event.preventDefault();
+    }
+  }
+
+  moveBookInScope(oldIndex, newIndex) {
+    if(oldIndex === newIndex) {
       return;
     }
 
@@ -201,15 +214,17 @@ class ProductsShowcase {
   };
 
   clearMarker() {
-    this.$scope.books.forEach((book) => book.marker = -1);
+    this.$scope.books.forEach((book) => book.marker = 1);
   }
 
   normalize(data) {
     return data.map((book) => {
+
       return {
-        url: book.url,
+        image: book.image,
         description: ProductsShowcase.addClassNameToLinks(book.description),
-        ribbonColor: randomColor()
+        ribbonColor: randomColor(),
+        link: book.link
       }
     });
   }

@@ -82,6 +82,8 @@
 }
 
 .productsShowcase__item--dragged {
+  cursor: move;
+  cursor: url('/img/cursor.gif') !important;
   position: relative;
   z-index: 1;
 }

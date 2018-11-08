@@ -16,20 +16,25 @@
         ng-mouseup='bookMouseUpnHandler($event, $index)',
         ng-class='{"productsShowcase__item--dragged": book.isDragged}')
 
-      .productsShowcase__marker(ng-if='book.marker === 0')
+      .productsShowcase__marker(ng-if='book.marker === -1')
 
       .product(style='{{book.transform}}')
         .product__book.productsShowcase__book
-          .book(ng-class='{"book--dragged": book.isDragged}')
+          a.book(
+              ng-click='coverClick($event, $index)'
+              target="_blank",
+              href='{{book.link}}',
+              ng-class='{"book--dragged": book.isDragged}')
+
             .book__ribbon(style='color: {{book.ribbonColor}}')
               svg.svg.ribbon
                 use(xlink:href='#svgRibbon')
 
-            img.book__image.productsShowcase__cover(ng-src='{{book.url}}', alt='{{book.description}}')
+            img.book__image.productsShowcase__cover(ng-src='{{book.image}}', alt='{{book.description}}')
 
         .product__title(ng-bind-html='book.description')
 
-      .productsShowcase__marker.productsShowcase__marker--end(ng-if='book.marker === 1')
+      .productsShowcase__marker.productsShowcase__marker--end(ng-if='book.marker === 0')
 
   button.productsShowcase__more(
       ng-click='moreButtonClickHandler()',

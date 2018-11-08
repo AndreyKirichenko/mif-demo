@@ -1,5 +1,6 @@
 .book {
   cursor: pointer;
+  display: block;
   height: 300px;
   position: relative;
   width: 210px;
@@ -22,7 +23,6 @@
 }
 
 .book--dragged {
-  cursor: move;
   transform: scale(1.2, 1.2) translateY(-30px);
 }
 
