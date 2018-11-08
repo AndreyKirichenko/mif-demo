@@ -44,7 +44,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "angular": "^1.7.5",
-    "angular-drag-and-drop-lists": "^2.1.0",
     "angular-sanitize": "^1.7.5",
     "randomcolor": "^0.5.3"
   }

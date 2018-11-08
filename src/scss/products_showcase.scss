@@ -38,7 +38,8 @@
 .productsShowcase__marker {
   background-color: #e51907;
   height: 413px;
-  position: relative;
+  position: absolute;
+  top: 0;
   transform: translateY(-11px);
   width: 2px;
 
@@ -63,7 +64,12 @@
   }
 }
 
+.productsShowcase__marker--end {
+  right: 0;
+}
+
 .productsShowcase__item {
+  position: relative;
   margin-bottom: 54px;
 
   &:last-child {
@@ -73,6 +79,11 @@
   @media screen and (min-width: $tablet) {
     margin-bottom: 65px;
   }
+}
+
+.productsShowcase__item--dragged {
+  position: relative;
+  z-index: 1;
 }
 
 .productsShowcase__more {
@@ -99,4 +110,8 @@
   @media screen and (min-width: $tablet) {
     height: 42px;
   }
+}
+
+.productsShowcase__more--hidden {
+  display: none;
 }

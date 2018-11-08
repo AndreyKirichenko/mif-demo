@@ -30,12 +30,12 @@ class Eye {
       this.updateSizes();
     });
 
-    let debouncedUpdate = throttle(() => this.pupilUpdate(), DEBOUNCE_TIMEOUT);
+    let throttledUpdate = throttle(() => this.pupilUpdate(), DEBOUNCE_TIMEOUT);
 
     window.addEventListener('mousemove', (event) => {
       this.mouseX = event.clientX;
       this.mouseY = event.clientY;
-      debouncedUpdate();
+      throttledUpdate();
     });
   }
 

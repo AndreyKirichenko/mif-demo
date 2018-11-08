@@ -3,6 +3,7 @@
   height: 300px;
   position: relative;
   width: 210px;
+  transition: transform 0.5s ease;
 }
 
 .book__image {
@@ -20,11 +21,11 @@
   position: absolute;
 }
 
-.book--dragAndDrop {
+.book--dragged {
   cursor: move;
   transform: scale(1.2, 1.2) translateY(-30px);
 }
 
-.book--dragAndDrop .book__image {
+.book--dragged .book__image {
   box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.33);
 }

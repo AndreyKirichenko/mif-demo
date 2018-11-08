@@ -8,20 +8,30 @@
       | Перетаскивайте книги ниже с&nbsp;места на&nbsp;место. Это&nbsp;то, чем мы&nbsp;любим больше всего заниматься. Попробуйте, вам понравится.
 
   ul.productsShowcase__list
-    li.productsShowcase__item(ng-repeat='book in books')
-      .product
+    li.productsShowcase__item(
+        ng-repeat='book in books',
+        on-finish-render='onFinishBooksRender()'
+        ng-mousedown='bookMouseDownHandler($event, $index)',
+        ng-mousemove='bookMouseMoveHandler($event, $index)'
+        ng-mouseup='bookMouseUpnHandler($event, $index)',
+        ng-class='{"productsShowcase__item--dragged": book.isDragged}')
+
+      .productsShowcase__marker(ng-if='book.marker === 0')
+
+      .product(style='{{book.transform}}')
         .product__book.productsShowcase__book
-          .book
+          .book(ng-class='{"book--dragged": book.isDragged}')
             .book__ribbon(style='color: {{book.ribbonColor}}')
               svg.svg.ribbon
                 use(xlink:href='#svgRibbon')
 
-            img.book__image.productsShowcase__cover(ng-src='{{book.url}}', alt='some text')
+            img.book__image.productsShowcase__cover(ng-src='{{book.url}}', alt='{{book.description}}')
 
         .product__title(ng-bind-html='book.description')
 
-    .productsShowcase__marker
+      .productsShowcase__marker.productsShowcase__marker--end(ng-if='book.marker === 1')
 
-
-  button.productsShowcase__more(ng-click='moreButtonClickHandler()')
+  button.productsShowcase__more(
+      ng-click='moreButtonClickHandler()',
+      ng-class='{"productsShowcase__more--hidden": buttonIsHidden}')
     | Еще несколько книг
