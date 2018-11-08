@@ -3,7 +3,7 @@ import '../pug/index.pug';
 
 import angular from 'angular';
 import ngSanitize from 'angular-sanitize';
-import onFinishRender from './on_finidh_render'
+import onFinishRender from './on_finish_render'
 
 import LiveBookShowcase from './live_book_showcase';
 import ProductsShowcase from './products_showcase';
