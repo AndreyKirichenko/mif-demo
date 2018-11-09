@@ -1,4 +1,4 @@
-# FunBox
+# MIF
 
 My demo task implementation!
 
