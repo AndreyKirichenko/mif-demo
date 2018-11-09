@@ -23,6 +23,7 @@
 }
 
 .book--dragged {
+  cursor: move;
   transform: scale(1.2, 1.2) translateY(-30px);
 }
 

@@ -1,18 +1,14 @@
-import Eye from './eye';
+class LiveBookShowcase {
+  constructor($scope) {
+    this.$scope = $scope;
+    $scope.isBought = false;
+    $scope.clickHandler = this.clickHandler.bind(this);
+  }
 
-let eye, submit;
-
-function liveBookShowcase() {
-  eye = new Eye();
-
-  submit = document.querySelector('.liveBookShowcase__submit');
-  submit.addEventListener('click', buy);
+  clickHandler() {
+    this.$scope.isBought = true;
+    this.$scope.$broadcast('liveBookBuy');
+  }
 }
 
-function buy() {
-  submit.removeEventListener('click', buy);
-  eye.oh();
-  document.querySelector('.liveBook').classList.add('liveBook--bought');
-}
-
-export default liveBookShowcase;
+export default LiveBookShowcase;

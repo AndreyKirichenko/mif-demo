@@ -6,7 +6,6 @@
   overflow: hidden;
   position: relative;
   width: 88px;
-  will-change: transform;
 
   @media screen and (min-width: $tablet) {
     height: 132px;
@@ -24,6 +23,7 @@
   transform: translate(-50%, -50%);
   transition: width 0.5s ease, height 0.5s ease;
   width: 17px;
+  will-change: transform;
 
   @media screen and (min-width: $tablet) {
     height: 26px;
@@ -43,7 +43,7 @@
   }
 }
 
-.eye--oh {
+.eye--isCrazy {
   background-image: url('/img/live_book/oh.png');
   background-repeat: no-repeat;
   transform: scaleY(0.9);

@@ -1,4 +1,4 @@
-.liveBookShowcase
+.liveBookShowcase(ng-controller='liveBookShowcaseCtrl')
   .title.title--1.liveBookShowcase__title
     | Мы&nbsp;издаем&nbsp;
     br.break.break--mobile.break.break--tablet
@@ -61,7 +61,7 @@
     | и «Когнитивный писсонанс»
 
   .liveBookShowcase__footer
-    button.liveBookShowcase__submit
+    button.liveBookShowcase__submit(ng-click='clickHandler()', ng-if='!isBought')
       | Купить
       br.break.break--mobile
       | за жалкие 1999

@@ -1,4 +1,4 @@
-.liveBook
+.liveBook(ng-class='{"liveBook--bought": isBought}')
   .liveBook__ribbon
     svg.svg.ribbon.ribbon--big
       use(xlink:href='#svgRibbon')
@@ -6,8 +6,8 @@
   img.liveBook__cover(src='/img/live_book/live_book.jpg', alt='Живая книга (ее нужно кормить)')
 
   .liveBook__eye
-    .eye
-      .eye__pupil
+    .eye(ng-controller='eyeCtrl', ng-class='{"eye--isCrazy": isCrazy}', style='{{eyeStyle}}')
+      .eye__pupil(style='{{pupilStyle}}')
 
       svg.svg.eye__eyelids
         use(xlink:href='#svgEyelids')
